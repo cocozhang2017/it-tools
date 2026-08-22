@@ -61,8 +61,8 @@ const tools = computed<ToolCategory[]>(() => [
 
         <div class="footer">
           <div>
-            tools.oflfonts.com &nbsp; © {{ new Date().getFullYear() }}
-            <c-link target="_blank" rel="noopener" href="https://tools.oflfonts.com">
+            tools.oflfonts.com © {{ new Date().getFullYear() }}
+            <c-link target="_blank" rel="noopener" href="https://oflfonts.com">
               oflfonts
             </c-link>
           </div>
