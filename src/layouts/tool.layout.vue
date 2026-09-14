@@ -1,33 +1,25 @@
 <script lang="ts" setup>
 import { useRoute } from 'vue-router';
-import { useHead } from '@vueuse/head';
-import type { HeadObject } from '@vueuse/head';
-
 import BaseLayout from './base.layout.vue';
 import FavoriteButton from '@/components/FavoriteButton.vue';
 import type { Tool } from '@/tools/tools.types';
+import { useSeo } from '@/composable/useSeo';
 
 const route = useRoute();
 
-const head = computed<HeadObject>(() => ({
-  title: `${route.meta.name} - IT Tools`,
-  meta: [
-    {
-      name: 'description',
-      content: route.meta?.description as string,
-    },
-    {
-      name: 'keywords',
-      content: ((route.meta.keywords ?? []) as string[]).join(','),
-    },
-  ],
-}));
-useHead(head);
+// 动态 title/description（优先使用翻译后的本地化版本）
 const { t } = useI18n();
-
 const i18nKey = computed<string>(() => route.path.trim().replace('/', ''));
 const toolTitle = computed<string>(() => t(`tools.${i18nKey.value}.title`, String(route.meta.name)));
-const toolDescription = computed<string>(() => t(`tools.${i18nKey.value}.description`, String(route.meta.description)));
+const toolDescription = computed<string>(() =>
+  t(`tools.${i18nKey.value}.description`, String(route.meta.description)),
+);
+
+// ✅ 使用 useSeo 统一处理 canonical、og:url、hreflang 等
+useSeo({
+  title: computed(() => `${toolTitle.value} - IT Tools`),
+  description: toolDescription,
+});
 </script>
 
 <template>

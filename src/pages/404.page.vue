@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { useHead } from '@vueuse/head';
+import { useSeo } from '@/composable/useSeo';
 
-useHead({ title: 'Page not found - IT Tools' });
+useSeo({
+  title: 'Page not found - IT Tools',
+});
 </script>
 
 <template>

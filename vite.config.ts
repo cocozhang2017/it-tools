@@ -17,6 +17,7 @@ import svgLoader from 'vite-svg-loader';
 import { configDefaults } from 'vitest/config';
 
 const baseUrl = process.env.BASE_URL ?? '/';
+const siteUrl = process.env.SITE_URL ?? 'https://it-tools.tech';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -106,6 +107,7 @@ export default defineConfig({
   },
   define: {
     'import.meta.env.PACKAGE_VERSION': JSON.stringify(process.env.npm_package_version),
+    'import.meta.env.SITE_URL': JSON.stringify(siteUrl),
   },
   test: {
     exclude: [...configDefaults.exclude, '**/*.e2e.spec.ts'],

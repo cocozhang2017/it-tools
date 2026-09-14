@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { useHead } from '@vueuse/head';
+import { useSeo } from '@/composable/useSeo';
 
-useHead({ title: 'About - IT Tools' });
+// ✅ 使用 useSeo 统一处理 canonical、og:url、hreflang 等
+useSeo({
+  title: 'About - IT Tools',
+});
 </script>
 
 <template>
