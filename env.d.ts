@@ -7,6 +7,7 @@ interface ImportMetaEnv {
   PACKAGE_VERSION: string;
   GIT_SHORT_SHA: string;
   PROD: boolean;
+  SITE_URL: string;
 }
 
 interface ImportMeta {
