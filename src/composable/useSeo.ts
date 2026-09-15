@@ -4,7 +4,7 @@ import type { HeadObject } from '@vueuse/head';
 import { useRoute } from 'vue-router';
 import type { MaybeRef } from '@vueuse/core';
 
-const SITE_URL = import.meta.env.SITE_URL ?? 'https://it-tools.tech';
+const SITE_URL = import.meta.env.SITE_URL ?? 'https://tools.oflfonts.com';
 const SITE_NAME = 'IT Tools';
 const DEFAULT_DESCRIPTION =
   'Collection of handy online tools for developers, with great UX. IT Tools is a free and open-source collection of handy online tools for developers & people working in IT.';
